@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#viewDiv {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.form {
+  visibility: hidden;
+}
+
+.form input {
+  display: block;
+  font-size: 14px;
+}
+
+.form input[type='text'] {
+  border: solid 1px #999;
+  border-radius: 3px;
+  background-color: white;
+  margin-bottom: 15px;
+  padding: 2px 4px;
+  width: 100%;
+}
+
+.form input[type='button'],
+.form input[type='submit'] {
+  border: solid 1px #999;
+  border-radius: 5px;
+  background-color: #ccc;
+  padding: 2px 4px;
+  width: 50%;
+}
+
+.form--popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}

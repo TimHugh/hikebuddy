@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>ArcGIS API Example</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="https://js.arcgis.com/4.0/"></script>
+  <script src="./script.js"></script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+
+  <div class="form form--popup">
+    <form name="newPointForm">
+      <input type="text"    name="name"         placeholder="Name"          autocomplete="off">
+      <input type="text"    name="description"  placeholder="Description"   autocomplete="off">
+      <div class="form__actions">
+        <input type="submit"  value="Save">
+        <input type="button"  value="Cancel"  name="cancel">
+      </div>
+
+      <input type="hidden" name="latitude">
+      <input type="hidden" name="longitude">
+    </form>
+  </div>
+</body>
+</html>
