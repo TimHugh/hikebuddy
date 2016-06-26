@@ -9,14 +9,30 @@ require([
   "dojo/domReady!"
 ], function(Point, SimpleMarkerSymbol, TextSymbol, MapView, Graphic, Map, PopupTemplate) {
 
+  if(navigator.geolocation) {
+    new Promise(function(resolve, reject) {
+      navigator.geolocation.getCurrentPosition(function(position){
+        resolve({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+      });
+    }).then(function(coords) {
+      window.mapView.goTo({
+        target: [coords.longitude, coords.latitude],
+        zoom: 14
+      },
+      {
+        duration: 3000,
+        easing: 'ease-in-out'
+      });
+    });
+  }
+
   window.mapView = new MapView({
     container: "viewDiv",
     map: new Map({
       basemap: "topo"
     }),
-    zoom: 14,
     center: [-121.42, 47.42],
-    scale: 24000
+    zoom: 4
   });
 
   window.defaultSymbol = new SimpleMarkerSymbol({
@@ -51,7 +67,7 @@ require([
         text: event.target.name.value,
         yoffset: 6
       })
-    }))
+    }));
 
     event.target.style.visibility = "hidden";
     event.target.reset();
